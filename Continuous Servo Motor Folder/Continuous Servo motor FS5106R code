@@ -1,0 +1,42 @@
+// include the Servo library
+#include <Servo.h>
+Servo servo; // make servo object
+Servo myservo; // make the second servo object
+void setup() {
+// define first servo pin
+  servo.attach(9);
+  // the servo wait 30 minutes 
+  delay(1800000);
+  // servo rotates counterclockwise for 6 seconds
+  servo.write(0);
+  delay(7000);
+  // servo stop for 5 seconds 
+  servo.write(90);
+  delay(5000);
+  // servo rotates clockwise for 5 seconds
+  servo.write(180);
+  delay(6000);
+  // servo stop
+  servo.write(90);
+  // defining the other servo pin
+  myservo.attach(10);
+  // servo wait 20 minutes 
+  delay(1200000)
+  // servo rotates counterclockwise for 6 seconds
+  myservo.write(0);
+  delay(6000);
+  // servo stops for 6 seconds
+  myservo.write(90);
+  delay(6000);
+  // servo rotates clockwise for 6 seconds 
+  myservo.write(180);
+  delay(6000);
+  // servo stop
+   myservo.write(90);
+  delay(6000);
+  // code end
+  exit(0);
+}
+ void loop() {
+
+ }
