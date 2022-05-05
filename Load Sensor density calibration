@@ -1,0 +1,32 @@
+#include "HX711.h"
+const int loadCell_DT = 7;
+const int loadCell_SCK = 8;
+
+HX711 load;
+
+void setup() {
+  Serial.begin(9600);
+
+  load.begin(loadCell_DT, loadCell_SCK);
+}
+
+void loop() {   
+  
+  float Force=((load.read()-135214.000)*34.3)/8350.000*0.001-0.063;
+  float Volume = 0.04669*0.04669*0.03865;
+
+  float density = Force / Volume*9.81;
+  float wax = 180-((60/0.4)*density);
+  
+  Serial.println(ooo,3);
+
+  if (density < 1.2) {
+    Serial.print("You need to Increase the Wax mass by");
+    Serial.print(wax);
+    Serial.print("grams");
+  }
+  if (density == 1.2) {
+  Serial.print("the design requirment is achieved")
+  }
+  
+}
